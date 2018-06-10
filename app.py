@@ -2,21 +2,14 @@
 from threading import Lock
 from flask import Flask, render_template, session, request
 from flask_socketio import SocketIO, emit, disconnect
-import time
-import json
 import sqlite3
 import urllib
 import hmac, hashlib
 import requests
-import json
 
 from urllib.parse import urlparse, urlencode
-from urllib.request import Request, urlopen
 import time
 
-global new
-global ke
-ke = []
 
 class Binance():
     methods = {
@@ -81,8 +74,8 @@ class Binance():
         return response.json()
 
 bot = Binance(
-    API_KEY='o2kMZ7Ru0vehAI4KC3IVlLpzSqyPHrkFhF97JLkS0jjDtojppucMMUI6Hu1Fvop8',
-    API_SECRET='rG9E1vRQy1Ra9mZQzF5KZlP2mBkF0u5TQMOn5gtZGYPdacP2w937cgmN4xiqyFO6'
+    API_KEY='key',
+    API_SECRET='key'
 )
 
 async_mode = None
@@ -98,7 +91,6 @@ thread_lock = Lock()
 
 
 def background_thread():
-    """Example of how to send server generated events to clients."""
     zapros = bot.tickerPrice()
     s = 0
     id = 0
@@ -169,7 +161,7 @@ def background_thread():
 
         idd = id + 60
         if idd >= 120:
-            idd = idd - 120  # или же -119, тут завтра еще буду чекать
+            idd = idd - 120
 
         cursor.execute("SELECT js FROM Tex WHERE id=?", (str(idd),))
         all_price_old_5 = cursor.fetchone()
