@@ -20,7 +20,7 @@ Flask-SocketIO==2.9.4
 gunicorn==19.7.1
 idna==2.6
 itsdangerous==0.24
-Jinja2==2.10
+Jinja2==2.11.3
 MarkupSafe==1.0
 python-engineio==2.0.3
 python-socketio==1.8.4
