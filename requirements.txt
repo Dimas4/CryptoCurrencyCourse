@@ -9,7 +9,7 @@ hmac==15.2
 threading==17.1
 urllib==21.5
 hashlib==15.1
-Flask-Cors==3.0.3
+Flask-Cors==3.0.9
 Flask-SocketIO==2.9.4
 Flask-Sockets==0.2.1
 certifi==2018.1.18
